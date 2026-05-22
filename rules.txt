@@ -1,0 +1,46 @@
+BAGIAN 1 PENAMAAN FILE DAN FOLDER
+A.harus menggunakan format huruf kecil untuk nama folder.
+B.gunakan pemisah tanda hubung jika nama folder memiliki lebih dari satu kata.
+C.terapkan format huruf kapital pada setiap awal kata untuk nama file komponen React.
+D.tulis nama file fungsi pendukung murni menggunakan format huruf kecil di awal dan kapital pada kata berikutnya.
+
+BAGIAN 2 PENAMAAN KOMPONEN DAN FUNGSI
+A.terapkan format huruf kapital pada setiap awal kata untuk deklarasi fungsi komponen.
+B.tulis nama variabel menggunakan format huruf kecil di awal dan kapital pada kata berikutnya.
+C.tulis nama fungsi pengelola aksi dengan awalan kata kerja seperti tangani atau ambil.
+D.tulis nama kelas gaya CSS menggunakan format huruf kecil dengan pemisah tanda hubung.
+
+BAGIAN 3 STRUKTUR PENULISAN KODE
+A.wajib menggunakan komponen fungsional berbasis React Hooks.
+B.simpan semua fungsi komunikasi antarmuka pemrograman aplikasi pada direktori layanan.
+C.panggil fungsi layanan tersebut dari dalam halaman untuk mendapatkan data.
+D.kirim data tersebut ke komponen tampilan menggunakan properti.
+E.terapkan nilai bawaan pada properti komponen untuk mencegah kegagalan aplikasi saat data kosong.
+
+BAGIAN 4 KEBERSIHAN KODE
+A.samakan konfigurasi alat ESLint pada setiap komputer anggota tim.
+B.hapus semua baris perintah cetak konsol sebelum menggabungkan kode ke repositori utama.
+C.tulis nama variabel menggunakan bahasa Inggris.
+D.tulis komentar penjelas logika atau algoritma kompleks menggunakan bahasa Indonesia.
+
+PENJELASAN STRUKTUR FOLDER
+TEMANMASAK
+│
+├── node_modules/         #Pustaka dan dependensi proyek
+├── public/               #File statis (index.html, favicon, gambar)
+└── src/                  #Pusat kode sumber aplikasi Anda
+    ├── assets/           #Gambar, font, atau ikon lokal
+    ├── components/       #Komponen global yang dapat digunakan ulang (Button, Modal)
+    ├── features/         #Logika spesifik per fitur (dashboard, auth, profile)
+    │   ├── auth/         
+    │   │   ├── components/   #Komponen khusus untuk fitur auth
+    │   │   ├── services/     #API/fetch khusus auth
+    │   │   └── index.js      
+    ├── hooks/            #Custom React Hooks (useFetch, dll)
+    ├── layouts/          #Kerangka halaman utama (Navbar, Sidebar, Footer)
+    ├── pages/            #Halaman utama yang memanggil komponen dan layout
+    ├── services/         #Konfigurasi dan panggilan API global (Axios/Fetch)
+    ├── styles/           #File CSS global atau konfigurasi tema (Tailwind/Sass)
+    ├── utils/            #Fungsi pembantu (format tanggal, helper matematika)
+    ├── App.js            #Komponen utama yang menjadi pusat routing
+    └── index.js          #Titik masuk aplikasi ke DOM

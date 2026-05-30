@@ -1,0 +1,19 @@
+:root {
+  --color-primary: #006E0A;
+  --color-primary-light: #D6EFDA;
+  --color-accent: #FFA504;
+  --color-sidebar-icon: #3D4A39;
+  --color-bg: #FAFAF4;
+  --color-white: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #1A1C19;
+  --color-item-bg: #F5F5F0;
+  --color-border: #eeeeee;
+
+  --font-family: 'Quicksand', sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 30px;
+}

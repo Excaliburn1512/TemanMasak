@@ -1,7 +1,8 @@
-import IngredientsPage from './pages/ingredients/IngredientsPage'
+import IngredientsPage from "./pages/ingredients/IngredientsPage";
+import CookingStepPage from "./pages/CookingStepPage";
 
 function App() {
-  return <IngredientsPage />
+  return <CookingStepPage />;
 }
 
-export default App
+export default App;

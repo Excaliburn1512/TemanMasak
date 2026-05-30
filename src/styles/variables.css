@@ -1,6 +1,7 @@
 :root {
   --color-primary: #006E0A;
   --color-primary-light: #D6EFDA;
+  --color-primary-active: rgba(50, 205, 50, 0.2);
   --color-accent: #FFA504;
   --color-sidebar-icon: #3D4A39;
   --color-bg: #FAFAF4;

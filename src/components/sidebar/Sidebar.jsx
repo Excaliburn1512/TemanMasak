@@ -67,7 +67,7 @@ function Sidebar({ recipe, activeTab, onTabChange, onSelesai }) {
           className={`sidebar-selesai-btn ${selesaiConfirm ? 'confirm' : ''}`}
           onClick={tanganiSelesai}
         >
-          {selesaiConfirm ? 'Yes, I\'m Done' : 'Finish Cooking'}
+          {selesaiConfirm ? 'Yakin Selesai?' : 'Selesai Memasak'}
         </button>
       </div>
     </aside>

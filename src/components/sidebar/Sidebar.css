@@ -1,5 +1,5 @@
 .sidebar {
-  width: 200px;
+  width: 220px;
   height: 100%;
   background-color: var(--color-bg);
   display: flex;
@@ -8,6 +8,7 @@
   gap: 24px;
   flex-shrink: 0;
   overflow: hidden;
+  border-right: 1px solid var(--color-border);
 }
 
 .sidebar-recipe-info {
@@ -95,7 +96,7 @@
   position: absolute;
   inset: 0;
   border-radius: 99px;
-  background: #E8F5E9;
+  background: var(--color-primary-active);
   z-index: 0;
   clip-path: inset(0 100% 0 0 round 99px);
   transition: clip-path 0.35s cubic-bezier(0.4, 0, 0.2, 1);

@@ -4,9 +4,11 @@
   gap: 16px;
   padding: 16px 20px;
   background-color: var(--color-item-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: background 0.15s;
+  position: relative;
+  overflow: hidden;
+  transition: background .2s;
   user-select: none;
 }
 
@@ -14,10 +16,13 @@
   background-color: #e8e8e2;
 }
 
+.ingredient-item.checked {
+  background-color: #e8f5e9;
+}
+
 .ingredient-item.checked .ingredient-label {
   text-decoration: line-through;
   color: var(--color-text-secondary);
-  transition: color 0.2s, text-decoration 0.2s;
 }
 
 .ingredient-checkbox {
@@ -29,7 +34,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color .2s, background .2s;
 }
 
 .ingredient-checkbox.checked {
@@ -47,4 +52,21 @@
   font-size: 15px;
   font-weight: 500;
   color: var(--color-text-primary);
+  transition: color .25s;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-primary-active);
+  transform: scale(0);
+  animation: ripple-anim .5s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }

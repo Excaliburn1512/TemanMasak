@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Container Utama */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9fafb;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.card-container {
+    display: flex;
+    width: 92%;
+    max-width: 1150px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Panel Kiri & Kanan */
+.left-panel {
+    flex: 1;
+    background-color: #f1efe7;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+
+.lottie-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.lottie-container>div,
+.lottie-container svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.right-panel {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Tombol dan Tautan */
+.forgot-password-container {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password-link {
+    color: #16a34a;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.register-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.register-link {
+    color: #16a34a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Pemisah (Dipindah dari button.css karena ini urusan tata letak) */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #9ca3af;
+    font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* Container untuk tombol sosial */
+.social-login-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+/* ================= RESPONSIVE (HP & TABLET) ================= */
+@media (max-width: 768px) {
+
+    /* Sembunyikan panel animasi (kiri) secara total di layar kecil */
+    .left-panel {
+        display: none;
+    }
+
+    /* Sesuaikan bantalan (padding) form login agar pas di layar HP */
+    .right-panel {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Buat kartu sedikit lebih lebar agar memaksimalkan ruang di HP */
+    .card-container {
+        width: 95%;
+        border-radius: 20px;
+    }
+}

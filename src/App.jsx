@@ -1,25 +1,21 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+﻿import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-// import LandingPage from './pages/Home';
+import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
-import ChatPage from './pages/ChatPage';
-
+import RegisterPage from './pages/RegisterPage';
 import Home from './pages/Home';
-import IngredientsPage from './pages/ingredients/IngredientsPage';
-import CookingStepPage from './pages/CookingStepPage';
+import './styles/responsive.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/chat" element={<ChatPage />} />
-
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/ingredients" element={<IngredientsPage />} />
-        <Route path="/cooking" element={<CookingStepPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

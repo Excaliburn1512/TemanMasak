@@ -1,47 +1,52 @@
 import React from 'react';
-import '../styles/button.css'; 
+import '../styles/button.css';
 
-const Button = ({ 
-    text = '', 
-    onClick, 
-    type = 'button', 
-    variant = 'primary', 
-    fullWidth = false, 
-    iconLeft = null, 
+const VARIANT_CLASS = {
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    accent: 'btn-accent',
+    social: 'btn-social',
+    ghost: 'btn-ghost',
+    danger: 'btn-danger',
+    'icon-only': 'btn-icon-only',
+};
+
+function Button({
+    children,
+    text = '',
+    onClick,
+    type = 'button',
+    variant = 'primary',
+    fullWidth = false,
+    iconLeft = null,
     iconRight = null,
     disabled = false,
     className = '',
-    justify = 'center' 
-}) => {
-    
-    let variantClass = '';
-    if (variant === 'primary') variantClass = 'btn-primary';
-    if (variant === 'secondary') variantClass = 'btn-secondary';
-    if (variant === 'social') variantClass = 'btn-social';
-    if (variant === 'ghost') variantClass = 'btn-ghost'; 
-    if (variant === 'icon-only') variantClass = 'btn-icon-only'; 
+    justify = 'center',
+}) {
+    const isIconOnly = variant === 'icon-only';
+    const content = children || text;
+    const variantClass = VARIANT_CLASS[variant] || VARIANT_CLASS.primary;
 
-    const finalClass = `widget-btn ${variantClass} ${className}`;
-
-    const btnStyle = {
-        width: fullWidth ? '100%' : (variant === 'icon-only' ? '40px' : 'max-content'),
-        height: variant === 'icon-only' ? '40px' : undefined, 
-        flexShrink: 0, 
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: variant === 'icon-only' ? 'center' : justify, 
-        gap: '12px', 
-        padding: variant === 'icon-only' ? '0' : undefined,
-        borderRadius: variant === 'icon-only' ? '50%' : undefined,
+    const buttonStyle = {
+        width: fullWidth ? '100%' : isIconOnly ? '40px' : undefined,
+        height: isIconOnly ? '40px' : undefined,
+        justifyContent: isIconOnly ? 'center' : justify,
     };
 
     return (
-        <button type={type} className={finalClass} onClick={onClick} disabled={disabled} style={btnStyle}>
-            {iconLeft && <span style={{ display: 'flex', alignItems: 'center' }}>{iconLeft}</span>}
-            {text && <span>{text}</span>}
-            {iconRight && <span style={{ display: 'flex', alignItems: 'center' }}>{iconRight}</span>}
+        <button
+            type={type}
+            className={`widget-btn ${variantClass} ${className}`.trim()}
+            onClick={onClick}
+            disabled={disabled}
+            style={buttonStyle}
+        >
+            {iconLeft && <span className="widget-btn-icon">{iconLeft}</span>}
+            {content && <span>{content}</span>}
+            {iconRight && <span className="widget-btn-icon">{iconRight}</span>}
         </button>
     );
-};
+}
 
 export default Button;

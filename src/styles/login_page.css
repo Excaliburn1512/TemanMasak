@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 /* Container Utama */
 .page-container {
@@ -8,7 +7,7 @@
     align-items: center;
     min-height: 100vh;
     background-color: #f9fafb;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-family);
 }
 
 .card-container {
@@ -76,33 +75,6 @@
     text-decoration: none;
 }
 
-/* Pemisah (Dipindah dari button.css karena ini urusan tata letak) */
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 1.5rem 0;
-    color: #9ca3af;
-    font-size: 0.8rem;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.divider span {
-    padding: 0 10px;
-}
-
-/* Container untuk tombol sosial */
-.social-login-container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
 /* ================= RESPONSIVE (HP & TABLET) ================= */
 @media (max-width: 768px) {
 
@@ -121,4 +93,27 @@
         width: 95%;
         border-radius: 20px;
     }
+}
+.password-eye-button {
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.password-eye-button:hover {
+    color: #0d7a2d;
+    background-color: #dcfce7;
+}
+
+.password-eye-button svg {
+    display: block;
 }

@@ -4,15 +4,19 @@ import InputField from "../../../components/inputField";
 import Button from "../../../components/Button";
 import Text from "../../../components/Text";
 import CustomDialog from "../../../components/CustomDialog";
-import { handleUserLogin } from "../services/authService";
+import { handleUserRegister } from "../services/authService";
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const navigate = useNavigate();
 
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const [dialog, setDialog] = useState({
         show: false,
@@ -41,6 +45,13 @@ const LoginForm = () => {
             autoClose: false,
         });
     };
+
+    const IconUser = (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+    );
 
     const IconEmail = (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -76,11 +87,20 @@ const LoginForm = () => {
     const tanganiFormSubmit = async (e) => {
         e.preventDefault();
 
+        if (!username.trim()) {
+            showDialog(
+                "error",
+                "Username belum diisi",
+                "Masukkan username terlebih dahulu untuk membuat akun."
+            );
+            return;
+        }
+
         if (!email.trim()) {
             showDialog(
                 "error",
                 "Email belum diisi",
-                "Masukkan email terlebih dahulu untuk login."
+                "Masukkan email terlebih dahulu untuk membuat akun."
             );
             return;
         }
@@ -89,7 +109,25 @@ const LoginForm = () => {
             showDialog(
                 "error",
                 "Password belum diisi",
-                "Masukkan password terlebih dahulu untuk login."
+                "Masukkan password terlebih dahulu."
+            );
+            return;
+        }
+
+        if (password.length < 6) {
+            showDialog(
+                "warning",
+                "Password terlalu pendek",
+                "Password minimal harus 6 karakter."
+            );
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showDialog(
+                "error",
+                "Password tidak sama",
+                "Konfirmasi password harus sama dengan password."
             );
             return;
         }
@@ -97,25 +135,27 @@ const LoginForm = () => {
         setIsLoading(true);
 
         try {
-            const response = await handleUserLogin({ email, password });
+            await handleUserRegister({
+                username,
+                email,
+                password,
+            });
 
-            if (response.success) {
-                showDialog(
-                    "success",
-                    "Login Berhasil",
-                    "Selamat datang kembali! Kamu akan diarahkan ke halaman chat.",
-                    true
-                );
+            showDialog(
+                "success",
+                "Daftar Berhasil",
+                "Akun berhasil dibuat. Kamu akan diarahkan ke halaman login.",
+                true
+            );
 
-                setTimeout(() => {
-                    navigate("/chat", { replace: true });
-                }, 1200);
-            }
+            setTimeout(() => {
+                navigate('/login', { replace: true });
+            }, 1200);
         } catch (error) {
             showDialog(
                 "error",
-                "Login Gagal",
-                error.message || "Email atau password salah. Silakan coba lagi."
+                "Daftar Gagal",
+                error.message || "Terjadi kesalahan saat membuat akun."
             );
         } finally {
             setIsLoading(false);
@@ -124,12 +164,32 @@ const LoginForm = () => {
 
     return (
         <>
-            <form onSubmit={tanganiFormSubmit} style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+            <form
+                onSubmit={tanganiFormSubmit}
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%'
+                }}
+            >
                 <div style={{ marginBottom: '1.5rem' }}>
                     <Text type="subtitle">Teman Masak</Text>
-                    <Text type="title">Selamat Datang<br />Kembali!</Text>
-                    <Text type="body">Siap memasak hidangan lezat hari ini? Masuk untuk melanjutkan.</Text>
+                    <Text type="title">
+                        Buat Akun<br />Baru!
+                    </Text>
+                    <Text type="body">
+                        Daftar dulu untuk mulai mencari rekomendasi resep sesuai bahan yang kamu punya.
+                    </Text>
                 </div>
+
+                <InputField
+                    label="Username"
+                    type="text"
+                    placeholder="nama pengguna"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    prefixIcon={IconUser}
+                />
 
                 <InputField
                     label="Email"
@@ -157,29 +217,44 @@ const LoginForm = () => {
                     }
                 />
 
-                <div style={{ textAlign: 'right', marginBottom: '1.5rem' }}>
-                    <Text type="link">Lupa password?</Text>
-                </div>
+                <InputField
+                    label="Konfirmasi Password"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    prefixIcon={IconLock}
+                    suffixWidget={
+                        <Button
+                            variant="ghost"
+                            type="button"
+                            iconLeft={showConfirmPassword ? IconEyeOff : IconEye}
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        />
+                    }
+                />
+
+                <div style={{ marginBottom: '1.5rem' }}></div>
 
                 <Button
                     type="submit"
-                    text={isLoading ? 'Memproses...' : 'Mulai Masak'}
+                    text={isLoading ? 'Mendaftarkan...' : 'Daftar Sekarang'}
                     variant="primary"
                     fullWidth={true}
                     disabled={isLoading}
                 />
 
                 <Text type="body" align="center">
-                    Belum punya akun?{" "}
+                    Sudah punya akun?{" "}
                     <span
-                        onClick={() => navigate('/register')}
+                        onClick={() => navigate('/login')}
                         style={{
                             color: '#0d7a2d',
                             fontWeight: 700,
                             cursor: 'pointer'
                         }}
                     >
-                        Daftar sekarang
+                        Masuk sekarang
                     </span>
                 </Text>
             </form>
@@ -197,4 +272,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;

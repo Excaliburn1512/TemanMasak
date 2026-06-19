@@ -1,0 +1,791 @@
+/* =====================================================
+   Global responsive overrides: desktop, tablet, mobile
+   Loaded last from App.jsx so it can safely override page CSS.
+   ===================================================== */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+/* ---------- Desktop refinement ---------- */
+@media (min-width: 1025px) {
+    .chat-area-container {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+
+    .chat-input-wrapper {
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+
+    .ingredients-content {
+        max-width: 1180px;
+        margin: 0 auto;
+    }
+}
+
+/* ---------- Tablet: 769px - 1024px ---------- */
+@media (max-width: 1024px) {
+    .landing-nav {
+        padding: 1.5rem 5%;
+    }
+
+    .hero-section {
+        gap: 2.5rem;
+        padding: 2rem 5% 4rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.35rem, 5vw, 3rem);
+    }
+
+    .hero-image-backdrop {
+        width: min(420px, 40vw);
+        height: min(420px, 40vw);
+    }
+
+    .features-section {
+        grid-template-columns: 1fr;
+        padding: 4rem 5%;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .steps-container {
+        gap: 1.5rem;
+    }
+
+    .card-container {
+        width: min(94vw, 980px);
+    }
+
+    .right-panel {
+        padding: 2rem;
+    }
+
+    .chat-area-container {
+        padding: 1.5rem;
+    }
+
+    .message-bubble {
+        max-width: 88%;
+    }
+
+    .recipe-card {
+        border-radius: 22px;
+    }
+
+    .recipe-header {
+        align-items: flex-start;
+    }
+
+    .ingredients-body,
+    .cooking-page {
+        flex-direction: column;
+        min-height: calc(100vh - 64px);
+        overflow: auto;
+    }
+
+    .ingredients-body > .sidebar,
+    .cooking-page > .sidebar {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 14px 20px;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+        overflow-x: auto;
+    }
+
+    .ingredients-body > .sidebar .sidebar-recipe-info,
+    .cooking-page > .sidebar .sidebar-recipe-info {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        min-width: 260px;
+        max-width: 360px;
+        gap: 12px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-thumbnail-wrapper,
+    .cooking-page > .sidebar .sidebar-thumbnail-wrapper {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+    }
+
+    .ingredients-body > .sidebar .sidebar-recipe-name,
+    .cooking-page > .sidebar .sidebar-recipe-name {
+        font-size: 14px;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .ingredients-body > .sidebar .sidebar-nav,
+    .cooking-page > .sidebar .sidebar-nav {
+        flex-direction: row;
+        gap: 8px;
+        flex: 1;
+        min-width: 260px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-nav-item,
+    .cooking-page > .sidebar .sidebar-nav-item {
+        justify-content: center;
+        height: 40px;
+        white-space: nowrap;
+    }
+
+    .ingredients-body > .sidebar .sidebar-footer,
+    .cooking-page > .sidebar .sidebar-footer {
+        margin-top: 0;
+        min-width: 170px;
+    }
+
+    .ingredients-main,
+    .step-card-wrapper {
+        min-height: 0;
+    }
+
+    .ingredients-content {
+        padding: 22px 24px 36px;
+    }
+
+    .ingredients-hero-wrapper {
+        height: 260px;
+    }
+
+    .step-card-wrapper {
+        padding: 24px;
+    }
+
+    .step-card {
+        max-width: 100%;
+        border-radius: 30px;
+        padding: 28px 32px 34px;
+    }
+
+    .step-title {
+        font-size: clamp(28px, 4.5vw, 40px);
+    }
+
+    .step-image-wrapper,
+    .step-card-wrapper .recipe-image,
+    .step-card-wrapper .step-image {
+        height: min(340px, 42vw);
+    }
+}
+
+/* ---------- Mobile: <= 768px ---------- */
+@media (max-width: 768px) {
+    body {
+        background: #fdfdf9;
+    }
+
+    .landing-nav {
+        padding: 1rem 1rem 0.75rem;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .nav-actions {
+        gap: 8px;
+    }
+
+    .nav-actions button {
+        padding: 10px 18px !important;
+        font-size: 0.88rem !important;
+    }
+
+    .hero-section {
+        padding: 1.5rem 1rem 3.5rem;
+        gap: 2rem;
+    }
+
+    .hero-badge {
+        font-size: 0.78rem;
+        padding: 7px 12px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 2.55rem);
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+    }
+
+    .hero-image-container {
+        min-height: 280px;
+        margin-top: 1.5rem;
+    }
+
+    .hero-image-backdrop {
+        width: 260px;
+        height: 260px;
+    }
+
+    .features-section,
+    .how-it-works-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .features-grid,
+    .steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .page-container,
+    .register-page {
+        min-height: 100dvh;
+        padding: 1rem;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .card-container {
+        width: 100%;
+        min-height: auto;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    .right-panel {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .register-card {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .chat-page-layout {
+        height: 100dvh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .sidebar-wrapper {
+        position: fixed !important;
+        inset: 0 auto 0 0;
+        width: min(82vw, 300px) !important;
+        max-width: 300px;
+        z-index: 1000;
+        transform: translateX(0);
+        transition: transform 0.28s ease, width 0.28s ease;
+    }
+
+    .sidebar-wrapper.closed {
+        width: 0 !important;
+        transform: translateX(-100%);
+    }
+
+    .sidebar-wrapper.open .sidebar-container {
+        box-shadow: 14px 0 38px rgba(15, 23, 42, 0.25);
+    }
+
+    .sidebar-container,
+    .sidebar-content {
+        width: min(82vw, 300px) !important;
+    }
+
+    .sidebar-content {
+        padding: 1.25rem 1rem;
+    }
+
+    .sidebar-wrapper.closed .btn-sidebar-toggle {
+        right: -56px;
+        top: 14px;
+    }
+
+    .sidebar-wrapper.open .btn-sidebar-toggle {
+        right: 12px;
+        top: 14px;
+    }
+
+    .chat-main-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .chat-area-container {
+        padding: 4.25rem 0.85rem 0.85rem;
+        height: 100dvh;
+    }
+
+    .chat-timestamp {
+        margin-bottom: 1rem;
+    }
+
+    .chat-messages-scroll {
+        gap: 0.9rem;
+        padding-bottom: 1rem;
+    }
+
+    .bot-message-row {
+        gap: 0.6rem;
+    }
+
+    .bot-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .message-bubble {
+        max-width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 18px;
+        font-size: 0.9rem;
+    }
+
+    .bot-bubble {
+        max-width: calc(100% - 40px) !important;
+    }
+
+    .user-bubble {
+        max-width: min(88%, 560px) !important;
+    }
+
+    .recipe-card-list {
+        gap: 0.85rem;
+        margin-top: 0.85rem;
+    }
+
+    .recipe-card {
+        padding: 0.9rem;
+        border-radius: 18px;
+    }
+
+    .recipe-header {
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .recipe-image-placeholder {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+    }
+
+    .recipe-info {
+        min-width: 0;
+    }
+
+    .recipe-tags {
+        gap: 0.35rem;
+    }
+
+    .tag {
+        font-size: 0.7rem;
+        padding: 0.28rem 0.5rem;
+    }
+
+    .recipe-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.65rem !important;
+    }
+
+    .recipe-actions .widget-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .chat-input-wrapper {
+        padding-top: 0.75rem;
+        padding-bottom: max(0.25rem, env(safe-area-inset-bottom));
+    }
+
+    .chat-input-box {
+        padding: 0.45rem 0.55rem 0.45rem 0.85rem;
+        border-radius: 22px;
+        align-items: center;
+    }
+
+    .chat-input-field {
+        min-width: 0;
+        padding: 0.55rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .chat-input-wrapper > div:last-child {
+        margin-top: 0.55rem !important;
+    }
+
+    .typing-indicator-row {
+        padding-left: 40px;
+    }
+
+    .header,
+    .page-header {
+        height: 58px;
+        padding: 0 16px;
+    }
+
+    .header-logo,
+    .logo-title {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .header-icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .header-avatar,
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ingredients-page {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .ingredients-body,
+    .cooking-page {
+        height: calc(100dvh - 58px);
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .ingredients-body > .sidebar,
+    .cooking-page > .sidebar {
+        padding: 12px;
+        gap: 12px;
+        align-items: stretch;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .ingredients-body > .sidebar::-webkit-scrollbar,
+    .cooking-page > .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ingredients-body > .sidebar .sidebar-recipe-info,
+    .cooking-page > .sidebar .sidebar-recipe-info {
+        min-width: 210px;
+        max-width: 230px;
+        gap: 10px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-thumbnail-wrapper,
+    .cooking-page > .sidebar .sidebar-thumbnail-wrapper {
+        width: 48px;
+        height: 48px;
+        border-width: 2px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-recipe-meta,
+    .cooking-page > .sidebar .sidebar-recipe-meta {
+        font-size: 11px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-nav,
+    .cooking-page > .sidebar .sidebar-nav {
+        min-width: 215px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-nav-item,
+    .cooking-page > .sidebar .sidebar-nav-item {
+        height: 38px;
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .ingredients-body > .sidebar .sidebar-footer,
+    .cooking-page > .sidebar .sidebar-footer {
+        min-width: 145px;
+        display: flex;
+        align-items: center;
+    }
+
+    .ingredients-body > .sidebar .sidebar-selesai-btn,
+    .cooking-page > .sidebar .sidebar-selesai-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .ingredients-main {
+        overflow-y: visible;
+        background: var(--color-white);
+    }
+
+    .ingredients-content {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .ingredients-hero-wrapper {
+        height: 210px;
+        border-radius: 18px;
+        margin-top: 0;
+    }
+
+    .ingredients-hero-overlay {
+        padding: 16px;
+    }
+
+    .ingredients-hero-title {
+        font-size: 21px;
+        line-height: 1.25;
+    }
+
+    .ingredient-list-card {
+        padding: 18px 16px;
+        border-radius: 18px;
+    }
+
+    .ingredient-list-header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .ingredient-list-header .btn,
+    .ingredient-list-header button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ingredient-item {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .ingredient-label {
+        font-size: 14px;
+        line-height: 1.45;
+        word-break: break-word;
+    }
+
+    .ingredient-checkbox {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ingredient-list-action {
+        justify-content: stretch;
+    }
+
+    .start-cooking-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 18px;
+    }
+
+    .step-card-wrapper {
+        padding: 16px;
+        min-height: auto;
+    }
+
+    .step-card {
+        border-radius: 22px;
+        padding: 20px 16px 22px;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.07);
+    }
+
+    .step-progress-track {
+        height: 8px;
+        margin-bottom: 20px;
+    }
+
+    .step-badge {
+        font-size: 12px;
+        padding: 7px 12px;
+        margin-bottom: 12px;
+    }
+
+    .step-title {
+        font-size: 25px;
+        margin-bottom: 18px;
+    }
+
+    .step-image-wrapper,
+    .step-card-wrapper .recipe-image,
+    .step-card-wrapper .step-image {
+        height: 220px;
+        border-radius: 18px;
+    }
+
+    .step-description,
+    .instruction-box {
+        font-size: 15px;
+        line-height: 1.65;
+        padding: 18px;
+        border-radius: 18px;
+        margin-bottom: 22px;
+    }
+
+    .step-actions,
+    .navigation-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .step-btn,
+    .previous-button,
+    .next-button {
+        width: 100%;
+        justify-content: center;
+        min-height: 50px;
+    }
+}
+
+/* ---------- Small mobile: <= 480px ---------- */
+@media (max-width: 480px) {
+    .landing-nav {
+        align-items: flex-start;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-actions button {
+        flex: 1;
+    }
+
+    .hero-buttons {
+        max-width: 100%;
+    }
+
+    .hero-image-container {
+        min-height: 235px;
+    }
+
+    .hero-image-backdrop {
+        width: 220px;
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .page-container,
+    .register-page {
+        padding: 0;
+    }
+
+    .card-container,
+    .register-card {
+        border-radius: 0;
+        min-height: 100dvh;
+        box-shadow: none;
+        border: none;
+    }
+
+    .right-panel,
+    .register-card {
+        padding: 1.25rem;
+    }
+
+    .chat-area-container {
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+    }
+
+    .message-bubble {
+        font-size: 0.86rem;
+        padding: 0.8rem 0.9rem;
+    }
+
+    .recipe-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .recipe-image-placeholder {
+        width: 100%;
+        height: 150px;
+    }
+
+    .recipe-info {
+        width: 100%;
+    }
+
+    .ingredients-body > .sidebar,
+    .cooking-page > .sidebar {
+        flex-wrap: nowrap;
+    }
+
+    .ingredients-content {
+        padding: 12px;
+    }
+
+    .ingredients-hero-wrapper {
+        height: 185px;
+    }
+
+    .ingredients-hero-title {
+        font-size: 19px;
+    }
+
+    .ingredient-list-title {
+        font-size: 20px;
+    }
+
+    .step-card-wrapper {
+        padding: 12px;
+    }
+
+    .step-title {
+        font-size: 22px;
+    }
+
+    .step-image-wrapper,
+    .step-card-wrapper .recipe-image,
+    .step-card-wrapper .step-image {
+        height: 185px;
+    }
+}

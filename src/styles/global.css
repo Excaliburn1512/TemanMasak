@@ -6,13 +6,32 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
 body {
+  margin: 0;
   font-family: var(--font-family);
   background-color: var(--color-bg);
   color: var(--color-text-primary);
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font-family: var(--font-family);
+}
+
+button {
   cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

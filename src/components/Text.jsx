@@ -1,41 +1,35 @@
 import React from 'react';
-import '../styles/text.css'; 
+import '../styles/text.css';
 
-const Text = ({ type = 'body', children, align = 'left', color }) => {
-    let textClass = '';
-    if (type === 'bigsubtitle') textClass = 'app-bigsubtitle';
-    if (type === 'subtitle') textClass = 'app-subtitle';
-    if (type === 'title') textClass = 'app-title';
-    if (type === 'body') textClass = 'app-description';
+const TYPE_CLASS = {
+    bigsubtitle: 'app-bigsubtitle',
+    title: 'app-title',
+    subtitle: 'app-subtitle',
+    body: 'app-description',
+    caption: 'app-caption',
+};
 
-    const inlineStyle = {
+function Text({ type = 'body', children, align = 'left', color, className = '', as }) {
+    const style = {
         textAlign: align,
-        color: color || undefined, 
+        color: color || undefined,
     };
 
     if (type === 'link') {
         return (
-            <a style={{ ...inlineStyle, color: color || '#16a34a', fontWeight: 600, textDecoration: 'none', cursor: 'pointer' }}>
+            <a className={`app-link ${className}`.trim()} style={style}>
                 {children}
             </a>
         );
     }
 
-    // Khusus untuk caption teks kecil (seperti tulisan "TODAY" atau jam)
-    if (type === 'caption') {
-        return (
-            <div style={{ ...inlineStyle, color: color || '#9ca3af', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '1px' }}>
-                {children}
-            </div>
-        );
-    }
+    const Component = as || 'div';
 
-    // Mengembalikan elemen div dengan class dan gaya yang sudah disesuaikan
     return (
-        <div className={textClass} style={inlineStyle}>
+        <Component className={`${TYPE_CLASS[type] || TYPE_CLASS.body} ${className}`.trim()} style={style}>
             {children}
-        </div>
+        </Component>
     );
-};
+}
 
 export default Text;

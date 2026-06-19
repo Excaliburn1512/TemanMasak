@@ -1,0 +1,79 @@
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 15px 18px;
+  background-color: var(--color-item-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  user-select: none;
+}
+
+.ingredient-item:hover,
+.ingredient-item:focus-visible {
+  background-color: #eeeee7;
+  border-color: #dbe2d4;
+  outline: none;
+}
+
+.ingredient-item.checked {
+  background-color: var(--color-success-soft);
+  border-color: #ccebd0;
+}
+
+.ingredient-checkbox {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #c9c9bf;
+  border-radius: 50%;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ingredient-checkbox.checked {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.ingredient-checkmark {
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.ingredient-label {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  transition: color 0.18s ease;
+}
+
+.ingredient-item.checked .ingredient-label {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--color-primary-active);
+  transform: scale(0);
+  animation: ripple-anim 0.5s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

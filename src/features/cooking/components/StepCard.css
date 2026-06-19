@@ -1,0 +1,204 @@
+.step-card-wrapper {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 32px 48px;
+    overflow-y: auto;
+    background: var(--color-surface-soft);
+}
+
+.step-card {
+    width: 100%;
+    max-width: 940px;
+    min-height: fit-content;
+    padding: 32px 48px 40px;
+    border-radius: var(--radius-xl);
+    background: var(--color-white);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-progress-track {
+    width: 100%;
+    height: 10px;
+    margin-bottom: 30px;
+    border-radius: var(--radius-pill);
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.step-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    transition: width 0.25s ease;
+}
+
+.step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding: 8px 18px;
+    border-radius: var(--radius-pill);
+    background: var(--color-warning-soft);
+    color: #6b4100;
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
+.step-title {
+    margin-bottom: 26px;
+    color: var(--color-primary);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    font-weight: 900;
+    text-align: center;
+}
+
+.step-image-wrapper {
+    width: 100%;
+    max-width: 700px;
+    height: 360px;
+    margin-bottom: 26px;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: #e5e7eb;
+}
+
+.step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-description {
+    width: 100%;
+    max-width: 780px;
+    margin-bottom: 24px;
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
+    background: var(--color-surface-soft);
+    color: var(--color-text-primary);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+.step-nutrition-strip {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0 auto 28px;
+}
+
+.step-nutrition-item {
+    padding: 0.85rem 0.75rem;
+    border-radius: var(--radius-md);
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+    text-align: center;
+}
+
+.step-nutrition-item strong {
+    display: block;
+    color: #0f172a;
+    font-size: 0.96rem;
+    line-height: 1.1;
+}
+
+.step-nutrition-item span {
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.step-actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.step-btn {
+    min-height: 50px;
+    padding: 14px 26px;
+    border-radius: var(--radius-pill);
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+    transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.step-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.step-btn-outline {
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    border: 2px solid #cbd7c0;
+}
+
+.step-btn-outline:hover:not(:disabled) {
+    background: #f3f7ef;
+}
+
+.step-btn-outline:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.step-btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-button);
+}
+
+.step-btn-primary:hover {
+    background: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+    .step-card-wrapper {
+        height: auto;
+        padding: 20px 16px 32px;
+    }
+
+    .step-card {
+        padding: 24px 20px 28px;
+        border-radius: var(--radius-lg);
+    }
+
+    .step-image-wrapper {
+        height: 240px;
+    }
+
+    .step-description {
+        font-size: 1rem;
+    }
+
+    .step-actions {
+        flex-direction: column;
+    }
+
+    .step-btn {
+        width: 100%;
+    }
+
+    .step-nutrition-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 420px) {
+    .step-nutrition-strip {
+        grid-template-columns: 1fr;
+    }
+}

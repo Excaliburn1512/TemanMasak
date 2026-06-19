@@ -1,0 +1,28 @@
+.cooking-step-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.cooking-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cooking-step-page {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .cooking-page {
+    flex-direction: column;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,117 @@
+.ingredient-list-card {
+  padding: 28px 24px;
+}
+
+.ingredient-list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.ingredient-list-title {
+  color: var(--color-text-primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.ingredient-list-serves {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.ingredient-list-progress {
+  margin-top: 7px;
+  color: var(--color-primary);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.ingredient-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 18px 0;
+}
+
+.ingredient-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ingredient-list-action {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.start-cooking-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 13px 32px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: white;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.start-cooking-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+}
+
+.start-cooking-btn:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.start-cooking-btn:disabled {
+  background-color: #b8b8b8;
+  cursor: not-allowed;
+  opacity: 0.75;
+  box-shadow: none;
+  transform: none;
+}
+
+.start-cooking-btn.loading {
+  background-color: var(--color-primary-dark);
+}
+
+.start-cooking-icon {
+  display: flex;
+  align-items: center;
+}
+
+.start-cooking-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 560px) {
+  .ingredient-list-header {
+    flex-direction: column;
+  }
+
+  .ingredient-list-header .widget-btn,
+  .start-cooking-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -187,7 +187,7 @@ cd TemanMasak-main
 Jika menggunakan Git:
 
 ```bash
-git clone <url-repository>
+git clone https://github.com/Excaliburn1512/TemanMasak
 cd TemanMasak-main
 ```
 
